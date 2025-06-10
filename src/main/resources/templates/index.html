@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{layout :: layout(titulo='Página Inicial', content=~{::content})}">
+
+<th:block th:fragment="content">
+    <div th:if="${mensagem}" th:classappend="'alert-' + (${tipoMensagem} ?: 'success')" class="alert alert-dismissible fade show" role="alert">
+        <span th:text="${mensagem}"></span>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="section-title">
+                <h3 class="title">Nossos Produtos</h3>
+            </div>
+        </div>
+        <div class.="col-md-4 col-sm-6" th:each="produto : ${produtos}">
+            <div class="product">
+                <div class="product-img">
+                    <img th:src="@{${produto.imageUrl}}" alt="Imagem do Produto">
+                </div>
+                <div class="product-body">
+                    <p class="product-category" th:text="${produto.categoria}">Categoria</p>
+                    <h3 class="product-name"><a href="#" th:text="${produto.nome}">Nome do Produto</a></h3>
+                    <h4 class="product-price" th:text="${'R$ ' + #numbers.formatDecimal(produto.preco, 1, 'POINT', 2, 'COMMA')}">R$ 980.00</h4>
+                    <div class="product-rating">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                    </div>
+                </div>
+                <div class="add-to-cart">
+                    <a class="add-to-cart-btn" th:href="@{/adicionarCarrinho(id=${produto.id})}">
+                        <i class="fa fa-shopping-cart"></i> Adicionar ao Carrinho
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</th:block>
+</html>

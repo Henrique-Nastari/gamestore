@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{layout :: layout(titulo='Edição de Produto', content=~{::content})}">
+
+<th:block th:fragment="content">
+  <div class="container">
+    <h1 class="my-4">Editar Produto</h1>
+
+    <form action="#" th:action="@{/salvar}" th:object="${produto}" method="post">
+
+      <input type="hidden" th:field="*{id}" />
+      <input type="hidden" th:field="*{imageUrl}" />
+
+      <div class="mb-3">
+        <label for="nome" class="form-label">Nome do Produto</label>
+        <input type="text" class="form-control" id="nome" th:field="*{nome}" />
+        <div class="text-danger" th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></div>
+      </div>
+
+      <div class="mb-3">
+        <label for="descricao" class="form-label">Descrição</label>
+        <textarea class="form-control" id="descricao" rows="3" th:field="*{descricao}"></textarea>
+        <div class="text-danger" th:if="${#fields.hasErrors('descricao')}" th:errors="*{descricao}"></div>
+      </div>
+
+      <div class="mb-3">
+        <label for="preco" class="form-label">Preço</label>
+        <input type="number" step="0.01" class="form-control" id="preco" th:field="*{preco}" />
+        <div class="text-danger" th:if="${#fields.hasErrors('preco')}" th:errors="*{preco}"></div>
+      </div>
+
+      <div class="mb-3">
+        <label for="categoria" class="form-label">Categoria</label>
+        <input type="text" class="form-control" id="categoria" th:field="*{categoria}" />
+        <div class="text-danger" th:if="${#fields.hasErrors('categoria')}" th:errors="*{categoria}"></div>
+      </div>
+
+      <div class="mb-3">
+        <label for="estoque" class="form-label">Estoque</label>
+        <input type="number" class="form-control" id="estoque" th:field="*{estoque}" />
+        <div class="text-danger" th:if="${#fields.hasErrors('estoque')}" th:errors="*{estoque}"></div>
+      </div>
+
+      <button type="submit" class="btn btn-success">Salvar Alterações</button>
+      <a th:href="@{/admin}" class="btn btn-secondary">Cancelar</a>
+    </form>
+  </div>
+</th:block>
+</html>
