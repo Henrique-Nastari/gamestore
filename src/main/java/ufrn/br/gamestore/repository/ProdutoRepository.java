@@ -11,7 +11,7 @@ public interface ProdutoRepository extends JpaRepository<Produto, Long> {
 
     /**
      * Encontra todos os produtos que não foram deletados logicamente.
-     * O Spring Data JPA magicamente cria a query: "SELECT p FROM Produto p WHERE p.isDeleted IS NULL"
+     * O Spring Data JPA cria a query: "SELECT p FROM Produto p WHERE p.isDeleted IS NULL"
      * @return Uma lista de produtos ativos.
      */
     List<Produto> findByIsDeletedIsNull();
