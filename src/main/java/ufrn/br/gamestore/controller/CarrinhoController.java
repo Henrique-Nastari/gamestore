@@ -29,7 +29,6 @@ public class CarrinhoController {
         return "redirect:/index";
     }
 
-    // --- ESTE É O ÚNICO MÉTODO /verCarrinho QUE DEVE EXISTIR ---
     /**
      * Rota GET para exibir a página do carrinho de compras.
      * Se o carrinho estiver vazio, redireciona para o index com uma mensagem.
