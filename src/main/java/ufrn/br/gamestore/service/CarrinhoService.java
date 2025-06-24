@@ -10,7 +10,7 @@ import java.math.BigDecimal;
 import java.util.Optional;
 
 @Service
-@SessionScope // <-- MÁGICA! Cada usuário terá sua própria instância deste serviço em sua sessão.
+@SessionScope //Cada usuário terá sua própria instância deste serviço em sua sessão.
 public class CarrinhoService {
 
     private final List<Produto> itens = new ArrayList<>();
