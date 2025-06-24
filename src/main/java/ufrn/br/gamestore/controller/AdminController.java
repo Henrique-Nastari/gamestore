@@ -41,7 +41,7 @@ public class AdminController {
 
     @GetMapping("/deletar")
     public String deletarProduto(@RequestParam Long id, RedirectAttributes redirectAttributes) {
-        // A lógica de negócio continua no service, como já estava
+        // A lógica de negócio continua no service
         produtoService.deleteLogico(id);
         // 1. Adicionamos a mensagem de sucesso
         redirectAttributes.addFlashAttribute("mensagem", "Produto removido com sucesso!");
