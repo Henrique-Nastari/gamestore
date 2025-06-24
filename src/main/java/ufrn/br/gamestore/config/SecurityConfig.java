@@ -28,7 +28,6 @@ public class SecurityConfig implements WebMvcConfigurer {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-                // --- ALTERAÇÃO FINAL AQUI ---
                 // Mantemos o CSRF ativado por padrão, mas dizemos para ele ignorar a rota de logout.
                 .csrf(csrf ->
                         csrf.ignoringRequestMatchers("/logout")
