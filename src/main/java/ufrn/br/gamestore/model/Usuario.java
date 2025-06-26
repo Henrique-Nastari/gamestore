@@ -48,7 +48,6 @@ public class Usuario implements UserDetails {
     }
 
     // Para simplificar, vamos retornar 'true' para os métodos abaixo.
-    // Em um sistema real, você poderia ter lógicas para contas expiradas, bloqueadas, etc.
     @Override
     public boolean isAccountNonExpired() {
         return true;
